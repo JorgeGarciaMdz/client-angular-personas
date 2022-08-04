@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Provincia } from '../entity/Provincia';
-import { ProvinciaService } from '../service/provincia.service';
+import { ProvinciaCrudService } from '../service/provincia.crud.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { ProvinciaService } from '../service/provincia.service';
 })
 export class ProvinciaComponent implements OnInit {
 
-  constructor(private provinciaService:ProvinciaService) { }
+  constructor(private provinciaCrudService:ProvinciaCrudService) { }
 
   provincias:Provincia[] | undefined
   pp: Provincia[] = [
@@ -22,9 +22,17 @@ export class ProvinciaComponent implements OnInit {
   }
 
   getListProvincia(): void {
-    this.provinciaService.getAll().subscribe((p: Provincia[]) => {
+    this.provinciaCrudService.getAll().subscribe((p: Provincia[]) => {
       this.provincias = p
     },
       ( error: any) => console.log(error));
+  }
+
+  delete(id: any): void{
+    this.provinciaCrudService.delete(id); 
+    this.provincias?.forEach((p, i) => {
+      if(p.id == id)
+        this.provincias?.splice(i, 1);
+    });
   }
 }
