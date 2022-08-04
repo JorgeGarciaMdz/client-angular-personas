@@ -1,13 +1,13 @@
-<h1>Angular Router App</h1>
-<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-  <ul>
-    <li><a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
-
-    <li><a routerLink="/provincia" routerLinkActive="active" ariaCurrentWhenActive="page">Provincia</a></li>
-
-    <li><a routerLink="/ciudad" routerLinkActive="active" ariaCurrentWhenActive="page">Ciudad</a></li>
-
-  </ul>
-</nav>
+<div class="container">
+  <div class="row">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">Home</a>
+        <a class="navbar-brand" routerLink="/persona" routerLinkActive="active" ariaCurrentWhenActive="page">Persona</a>
+        <a class="navbar-brand" routerLink="/ciudad" routerLinkActive="active" ariaCurrentWhenActive="page">Ciudad</a>
+        <a class="navbar-brand" routerLink="/provincia" routerLinkActive="active" ariaCurrentWhenActive="page">Provincia</a>
+      </div>
+    </nav>
+  </div>
+</div>
 <router-outlet></router-outlet>

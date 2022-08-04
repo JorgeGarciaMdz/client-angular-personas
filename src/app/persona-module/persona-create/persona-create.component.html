@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col">
+            <h2>
+                <span *ngIf="persona">Update Persona</span>
+                <span *ngIf="!persona">Create Persona</span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<form class="mt-4" [formGroup]="personaFormBuilder" (submit)="onSubmitPersona($event)">
+    <div class="row">
+        <div class="col-md-1">
+            <input type="number" class="form-control" formControlName="id" hidden>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">DNI</label>
+            <input type="number" class="form-control" formControlName="dni">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+                <div *ngIf="name?.errors?.['required']">DNI is required</div>
+                <div *ngIf="name?.errors?.['min']">Min number is  1000</div>
+                <div *ngIf="name?.errors?.['max']">Max number is 99999999</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+                <div *ngIf="name?.errors?.['required']">Name is required</div>
+                <div *ngIf="name?.errors?.['minlength']">Min length is 3 words</div>
+                <div *ngIf="name?.errors?.['maxlength']">Max length is 150 words</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastname">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+                <div *ngIf="name?.errors?.['required']">Last Name is required</div>
+                <div *ngIf="name?.errors?.['minlength']">Min length is 3 words</div>
+                <div *ngIf="name?.errors?.['maxlength']">Max length is 150 words</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Ciudad</label>
+            <select formControlName="ciudadId" class="form-control" >
+                <option [value]="ciudad.id" *ngFor="let ciudad of ciudades">{{ciudad.name}}</option>
+            </select>
+            <div *ngIf="ciudadId?.invalid && (ciudadId?.dirty || ciudadId?.touched)" class="alert-danger">
+                <div *ngIf="ciudadId?.errors?.['required']">Ciudad is required</div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <label class="form-label">Birthday</label>
+            <input type="date" class="form-control" formControlName="birthday">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+                <div *ngIf="name?.errors?.['required']">Birthday Name is required</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2 ">
+            <button class="btn btn-outline-primary btn-submit">Submit</button>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <button class="btn btn-outline-primary btn-submit" routerLink="/persona">Back</button>
+        </div>
+    </div>
+</form>

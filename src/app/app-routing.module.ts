@@ -12,6 +12,11 @@ const routes: Routes = [
     .then( m => m.CiudadModuleModule)
   },
   {
+    path: 'persona',
+    loadChildren: () => import('./persona-module/persona-module.module')
+    .then( p => p.PersonaModuleModule)
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'
