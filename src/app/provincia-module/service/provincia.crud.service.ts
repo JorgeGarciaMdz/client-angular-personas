@@ -19,13 +19,11 @@ export class ProvinciaCrudService {
   }
 
   public create(provincia: Provincia){
-    console.log(JSON.stringify(provincia));
     return this.httpClient.post(this.url, provincia)
     .subscribe( (data: any) => { console.log(data)});
   }
 
   public update(provincia: Provincia){
-    console.log(JSON.stringify(provincia));
     return this.httpClient.post(this.url, provincia)
     .subscribe( (data: any) => { console.log(data)});
   }

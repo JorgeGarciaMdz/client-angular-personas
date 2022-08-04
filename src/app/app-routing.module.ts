@@ -7,6 +7,11 @@ const routes: Routes = [
   .then(m => m.ProvinciaModuleModule)
   },
   {
+    path: 'ciudad',
+    loadChildren: () => import('./ciudad-module/ciudad-module.module')
+    .then( m => m.CiudadModuleModule)
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'

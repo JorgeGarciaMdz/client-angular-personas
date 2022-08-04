@@ -1,9 +1,16 @@
-<h2>
-    <span *ngIf="id">Update Provincia</span>
-    <span *ngIf="!id">Create Provincia</span>
-</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col">
+            <h2>
+                <span *ngIf="ciudad">Update Ciudad</span>
+                <span *ngIf="!ciudad">Create Ciudad</span>
+            </h2>
+        </div>
+    </div>
+</div>
 
-<form class="mt-4" [formGroup]="provinciaFormBuilder" (submit)="onSubmitProvincia($event)">
+<form class="mt-4" [formGroup]="ciudadFormBuilder" (submit)="onSubmitCiudad($event)">
     <div class="row">
         <div class="col-md-1">
             <input type="number" class="form-control" formControlName="id" hidden>
@@ -17,6 +24,15 @@
                 <div *ngIf="name?.errors?.['maxlength']">Max length is 150 words</div>
             </div>
         </div>
+        <div class="col-md-3">
+            <label class="form-label">Select provincia</label>
+            <select formControlName="provinciaId" class="form-control" >
+                <option [value]="provincia.id" *ngFor="let provincia of provincias">{{provincia.name}}</option>
+            </select>
+            <div *ngIf="provinciaId?.invalid && (provinciaId?.dirty || provinciaId?.touched)" class="alert-danger">
+                <div *ngIf="provinciaId?.errors?.['required']">Provincia is required</div>
+            </div>
+        </div>
         <div class="col"></div>
     </div>
     
@@ -27,7 +43,7 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-1">
-            <button class="btn btn-outline-primary btn-submit" routerLink="/provincia">Back</button>
+            <button class="btn btn-outline-primary btn-submit" routerLink="/ciudad">Back</button>
         </div>
     </div>
 </form>
