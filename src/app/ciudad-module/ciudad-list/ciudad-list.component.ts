@@ -20,9 +20,7 @@ export class CiudadListComponent implements OnInit {
   private getAll(): void{
     this.ciudadCrudService.getAll().subscribe( (c: Ciudad[]) => {
       this.ciudades = c;
-    },
-      (error: any) => console.log(error)
-    );
+    });
   }
 
   public delete(id: any): void {

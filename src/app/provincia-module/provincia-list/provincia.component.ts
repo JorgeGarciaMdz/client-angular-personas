@@ -13,9 +13,6 @@ export class ProvinciaComponent implements OnInit {
   constructor(private provinciaCrudService:ProvinciaCrudService) { }
 
   provincias:Provincia[] | undefined
-  pp: Provincia[] = [
-    {id: 1, name: "adss"}
-  ]
 
   ngOnInit(): void {
     this.getListProvincia();
@@ -24,8 +21,7 @@ export class ProvinciaComponent implements OnInit {
   getListProvincia(): void {
     this.provinciaCrudService.getAll().subscribe((p: Provincia[]) => {
       this.provincias = p
-    },
-      ( error: any) => console.log(error));
+    });
   }
 
   delete(id: any): void{

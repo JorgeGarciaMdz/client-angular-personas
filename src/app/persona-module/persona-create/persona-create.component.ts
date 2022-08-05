@@ -41,7 +41,7 @@ export class PersonaCreateComponent implements OnInit {
 
   get dni(){ return this.personaFormBuilder.get('dni') }
   get name(){ return this.personaFormBuilder.get('name') }
-  get lastnam(){ return this.personaFormBuilder.get('lastname') }
+  get lastname(){ return this.personaFormBuilder.get('lastname') }
   get birthday(){ return this.personaFormBuilder.get('birthday') }
   get ciudadId(){ return this.personaFormBuilder.get('ciudadId') }
 
@@ -49,6 +49,8 @@ export class PersonaCreateComponent implements OnInit {
   }
 
   onSubmitPersona(e: Event){
+    console.log(this.personaFormBuilder.valid)
+    console.log(this.personaFormBuilder.value)
     if(this.personaFormBuilder.valid){
       this.personaCrudService.create(this.personaFormBuilder.value);
       this.router.navigateByUrl('/persona');
