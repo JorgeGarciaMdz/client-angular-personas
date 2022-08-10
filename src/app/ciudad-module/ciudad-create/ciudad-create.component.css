@@ -1,0 +1,8 @@
+.alert-danger {
+    color: red;
+    background-color:white;
+    font-size: small;
+}
+.btn-submit{
+  margin-top: 6%;
+}

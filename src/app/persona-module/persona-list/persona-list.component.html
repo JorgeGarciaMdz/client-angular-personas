@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+            <h2>Personas</h2>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Ciudad Name</th>
+                <th scope="col">
+                    <button class="btn btn-outline-primary" routerLink='/persona/create' routerLinkActive="router-link-active" >New</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let persona of personas'>
+                <th scope="row">{{persona.id}}</th>
+                <td scope="row">{{persona.dni}}</td>
+                <td scope="row">{{persona.name}}</td>
+                <td scope="row">{{persona.lastname}}</td>
+                <td scope="row">{{persona.birthday}}</td>
+                <td scope="row">{{persona.ciudadNombre}}</td>
+                <td scope="row">
+                    <button class="btn btn-outline-warning" [routerLink]="['create',persona.id]">Edit</button>
+                    <button class="btn btn-outline-danger" (click)='delete(persona.id)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

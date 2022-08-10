@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+            <h2>Provincias</h2>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">
+                    <button class="btn btn-outline-primary" routerLink='/provincia/create' routerLinkActive="router-link-active" >New</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let provincia of provincias'>
+                <th scope="row">{{provincia.id}}</th>
+                <td scope="row">{{provincia.name}}</td>
+                <td scope="row">
+                    <button class="btn btn-outline-warning" [routerLink]="['create',provincia.id]">Edit</button>
+                    <button class="btn btn-outline-danger" (click)='delete(provincia.id)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

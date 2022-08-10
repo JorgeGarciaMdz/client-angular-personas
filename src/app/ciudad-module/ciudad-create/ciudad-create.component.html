@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col">
+            <h2>
+                <span *ngIf="ciudad">Update Ciudad</span>
+                <span *ngIf="!ciudad">Create Ciudad</span>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<form class="mt-4" [formGroup]="ciudadFormBuilder" (submit)="onSubmitCiudad($event)">
+    <div class="row">
+        <div class="col-md-1">
+            <input type="number" class="form-control" formControlName="id" hidden>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert-danger">
+                <div *ngIf="name?.errors?.['required']">Name is required</div>
+                <div *ngIf="name?.errors?.['minlength']">Min length is 3 words</div>
+                <div *ngIf="name?.errors?.['maxlength']">Max length is 150 words</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Select provincia</label>
+            <select formControlName="provinciaId" class="form-control" >
+                <option [value]="provincia.id" *ngFor="let provincia of provincias">{{provincia.name}}</option>
+            </select>
+            <div *ngIf="provinciaId?.invalid && (provinciaId?.dirty || provinciaId?.touched)" class="alert-danger">
+                <div *ngIf="provinciaId?.errors?.['required']">Provincia is required</div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2 ">
+            <button class="btn btn-outline-primary btn-submit">Submit</button>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <button class="btn btn-outline-primary btn-submit" routerLink="/ciudad">Back</button>
+        </div>
+    </div>
+</form>
