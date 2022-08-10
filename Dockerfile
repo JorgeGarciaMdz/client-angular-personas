@@ -1,6 +1,6 @@
-FROM node:alpine as build
+FROM node:14-alpine as build
 RUN apk update
-RUN apk add npm
+RUN apk add npm>=8.15.1-r0
 WORKDIR /app 
 COPY . .
 RUN npm install
