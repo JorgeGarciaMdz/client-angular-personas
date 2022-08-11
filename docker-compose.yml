@@ -1,0 +1,8 @@
+version: "2.0"
+
+services: 
+  cliente-angular:
+    container_name: "cliente-angular"
+    build: ./
+    ports: 
+      - 4000:80

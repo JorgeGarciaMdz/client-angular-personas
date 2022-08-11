@@ -1,5 +1,17 @@
-# client-angular-personas
+# Cliente para Api Personas
 cliente para api-spring-boot-personas
+**server:** `https://github.com/JorgeGarciaMdz/api-spring-boot-personas.git`.
+
+## Ejecución mediante Docker
+
+``Primordial: tener instaldo docker y docker-compose``
+
+1. Clonar el repositorio.
+2. En la raíz del proyecto crear la imagen con "**`docker-compose build`**" .
+3. Levantar el contenedor con "**`docker-compose up`**".
+4. El contenedor del proyecto ya tiene la conexión al contenedor de base de datos con datos.
+5. El puerto `4000 no debe` estar en uso.
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
